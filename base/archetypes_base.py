@@ -695,12 +695,11 @@ def calc_heat_demand(flowlist, unitlist):
             flowout_index = find_Flow_index(flowout, flowlist)
             Flow = flowlist[flowout_index]
             
-            if Flow.attributes['flow_type'] == 'Condensate':
+            if Flow.attributes['flow_type'] == 'Condensate' or Flow.attributes['flow_type'] == 'Hot water return':
                 hd_s += (- Flow.attributes['heat_flow_rate'])
             
 
-            if Flow.attributes['flow_type'] == 'Steam (produced on-site)':
+            if Flow.attributes['flow_type'] == 'Steam (produced on-site)' or Flow.attributes['flow_type'] == 'Hot water (produced on-site)':
                 hd_s += (-Flow.attributes['heat_flow_rate'])
         heat_demand += hd_s
     return heat_demand
-
