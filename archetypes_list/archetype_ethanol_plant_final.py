@@ -31,7 +31,7 @@ c_pair = 1.000
 effiency_improvements = 1
 ethanol_kg_per_gal = 2.989
 
-#######################################################Units############################################################
+####################################################### Units ############################################################
 # Unit 1: Cleaning
 Unit1 = Unit('Cleaner')
 Unit1.expected_flows_in = ['Dirty Corn', 'Electricity (Cleaner)', 'Compressed Air (Cleaner)']
@@ -57,8 +57,7 @@ FlowA = Flow(name = 'Dirty Corn', components = ['Solids', 'Water'], composition 
 FlowA.set_calc_flow()
 allflows.append(FlowA)
 
-# Unit 2: Miller - https://www.horningmfg.com/sites/default/files/2020-05/2020-Roller-Mills-Brochure.pdf
-## I used this mill brochure to calculate an average electricity of small scale mills 
+# Unit 2: Miller 
 Unit2 = Unit('Miller')
 Unit2.expected_flows_in = ['Corn', 'Electricity (Miller)']
 Unit2.expected_flows_out = ['Milled Corn']
@@ -140,7 +139,7 @@ def Heaterfunc_cornslurry(corn_slurry_flow, coeff):
 
 Unit4.calculations = {'Corn Slurry': Heaterfunc_cornslurry}
 
-# Unit 5: Liquifaction and Saccherization
+# Unit 5: Liquefaction + Saccharification Tank
 Unit5 = Unit('Liquifaction Tank')
 Unit5.expected_flows_in = ['Hot Slurry', 'Steam (Liquifaction Tank)', 'Yeast, Enzymes and Acid']
 Unit5.expected_flows_out = ['Glucose Slurry', 'Condensate (Liquifaction Tank)']
@@ -250,7 +249,7 @@ def Fermentationtankfunc_cooledslurry(cooled_slurry_flow, coeff):
 
 Unit7.calculations = {'Cooled Slurry': Fermentationtankfunc_cooledslurry}
 
-# Unit 14: Preheater - 71 deg C is optimal
+# Unit 14: Preheater 
 Unit14 = Unit('Preheater')
 Unit14.expected_flows_in = ['Cooled Mash', 'Steam (Preheater)']
 Unit14.expected_flows_out = ['Condensate (Preheater)', 'Mash']
@@ -280,7 +279,7 @@ def Preaheaterfunc_cooledmash(cooled_mash_flow, coeff):
 
 Unit14.calculations = {'Cooled Mash': Preaheaterfunc_cooledmash}
            
-# Unit 8: Distillation Column - Check the bottoms of this 
+# Unit 8: Distillation Column 
 Unit8 = Unit('Distillation Column')
 Unit8.expected_flows_in = ['Mash', 'Steam (Distillation Column)']
 Unit8.expected_flows_out = ['Tops', 'Bottoms', 'Condensate (Distillation Column)']
@@ -333,7 +332,7 @@ def Distillationcolumnfunc_mash(mash_flow, coeff):
 
 Unit8.calculations = {'Mash': Distillationcolumnfunc_mash}
 
-# Unit 13: Vaporizer, according to Homeland Energy Solutions, Molecular Sieves require a gasous stream
+# Unit 13: Vaporizer
 Unit13 = Unit('Vaporizer')
 Unit13.expected_flows_in = ['Tops', 'Steam (Vaporizer)']
 Unit13.expected_flows_out = ['Vaporized Tops', 'Condensate (Vaporizer)']
@@ -519,6 +518,8 @@ def Drumdryerfunc_multi(ablist, coeff):
 Unit12.calculations = (['Wet Cake', 'Stillage'], Drumdryerfunc_multi)
 
     
+##########################################################################################################################################################################################################################################
+
 processunits = [Unit1, Unit2, Unit3, Unit4, Unit5, Unit6, Unit7, Unit8, Unit9, Unit10, Unit11, Unit12, Unit13, Unit14]
 
 main(allflows, processunits)
@@ -527,23 +528,7 @@ main(allflows, processunits)
 for unit in processunits:
     unit.check_heat_balance(allflows)
     unit.check_mass_balance(allflows)
-
-for flow in allflows:
-    if flow.attributes['flow_type'] == 'Product':
-        print(flow)
 '''
 
-utilities_recap('ethanol_plant_recap_6', allflows, processunits)
 
-total_steam_demand = 0
-total_electricity = 0
-
-for flow in allflows:
-    if flow.attributes['flow_type'] == 'Steam':
-        total_steam_demand = total_steam_demand + flow.attributes['heat_flow_rate']
-    elif flow.attributes['flow_type'] == 'Electricity':
-        total_electricity = total_electricity + flow.attributes['elec_flow_rate']
-
-        
-
-        
+       
