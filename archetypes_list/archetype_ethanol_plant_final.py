@@ -2,7 +2,44 @@
 """
 Created on Wednesday April 2nd 9:18:53 2025
 
-@author: Aidan ONeil
+Last updated on Jun 29 2026
+
+This is the python model for Ethanol production. It can only be run with the 
+archetypes base library available at https://github.com/ISALGroup/archetypes/tree/main/base.
+A user manual for using the base library and the different archetypes developed 
+is also available on the ISAL team's GitHub page. Accompanying documents, 
+namely: 1. the technical appendix, which contains the team's general approach
+to modeling and 2. the individual documents for each archetype can also 
+be found on the 2035 Initiative website, available at https://www.2035initiative.com/.
+
+The archetypes are free to use, distribute, and modify. If you use any of the
+archetypes results or the framework in your work, please cite either:
+- the 2035 initiative report:
+The 2035 Initiative. The Clean Heat Climate Opportunity: A Roadmap for Electrifying 
+Low- and Medium-Temperature Industrial Heat. December 2025.
+- the technical appendix:
+The 2035 Initiative. The Clean Heat Climate Opportunity: A Roadmap for Electrifying 
+Low- and Medium-Temperature Industrial Heat - Technical Appendix. July 2025.
+- or the citation contained in the CFF file available on the GitHub repository.
+
+UCSB, the Industrial Sustainability Analysis Laboratory, The 2035 Initiative
+and the different authors that participated in the production of the models 
+or the accompanying documents are not responsible or liable for
+any claim, damages or other liabilities associated with the use of the software
+or their results. 
+
+For further information about the software, please contact the author
+Antoine Merlo: a_merlo@ucsb.edu or merloantoine0@gmail.com.
+For the present model, the author is Aidan O'Neil. For any questions, please get
+in touch: ajo76@ucsb.edu.
+For other questions about the Industrial Sustainability Analysis Laboratory
+or to collaborate with us, please contact the head of the laboratory 
+Prof. Eric Masanet: emasanet@ucsb.edu
+
+
+@author: Aidan
+
+
 """
 
 # Imports
