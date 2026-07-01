@@ -3,7 +3,7 @@ Name: Aidan J ONeil
 Date: August 8th, 2025 
 Last updated on Jul 1 2026
 
-This is the python model for Tomato canning. It can only be run with the 
+This is the python model for polyethylene production. It can only be run with the 
 archetypes base library available at https://github.com/ISALGroup/archetypes/tree/main/base.
 A user manual for using the base library and the different archetypes developed 
 is also available on the ISAL team's GitHub page. Accompanying documents, 
