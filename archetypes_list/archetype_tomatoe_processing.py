@@ -1,7 +1,4 @@
-# Questions for Yoana:
-'''
 
-'''
 #  -*- coding: utf-8 -*-
 """
 Created on Monday May 19th 09:19:45 am 2025 (Updated: August 8th)
